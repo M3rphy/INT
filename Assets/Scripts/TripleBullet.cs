@@ -7,7 +7,7 @@ public class TripleBullet : MonoBehaviour
     [SerializeField] private GameObject bullet;
    
 
-    void Awake()
+    void Start()
     {
         transform.eulerAngles = new Vector3(0, 0, transform.rotation.eulerAngles.z + 20);
         Instantiate(bullet, transform.position, transform.rotation);

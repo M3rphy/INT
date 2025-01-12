@@ -272,7 +272,7 @@ PrefabInstance:
     - target: {fileID: 1891482928202991317, guid: 24591e0e330acfd4688e2cd1049eb54d, type: 3}
       propertyPath: magazin.Array.data[2]
       value: 
-      objectReference: {fileID: 331996301414693634, guid: 9371e663204dc5740abb73d313e9f71d, type: 3}
+      objectReference: {fileID: 331996301414693634, guid: f8f37fa159bfdcc45992a7012a73cd0e, type: 3}
     - target: {fileID: 1891482928202991317, guid: 24591e0e330acfd4688e2cd1049eb54d, type: 3}
       propertyPath: magazin.Array.data[3]
       value: 
