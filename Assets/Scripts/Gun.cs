@@ -64,7 +64,7 @@ public class Gun : MonoBehaviour
     private IEnumerator Reload()
     {
         Debug.Log("Reloading");
-        ReloadVisExecute.Invoke();
+        //ReloadVisExecute.Invoke();
         isReloading = true;
         canReload = false;
         yield return new WaitForSeconds(reloadTime);
