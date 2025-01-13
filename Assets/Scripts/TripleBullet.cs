@@ -11,13 +11,13 @@ public class TripleBullet : MonoBehaviour
     {
         transform.eulerAngles = new Vector3(0, 0, transform.rotation.eulerAngles.z + 20);
         Instantiate(bullet, transform.position, transform.rotation);
-        Debug.Log(transform.rotation.eulerAngles.z);
+
         transform.eulerAngles = new Vector3(0, 0, transform.rotation.eulerAngles.z - 20);
         Instantiate(bullet, transform.position, transform.rotation);
-        Debug.Log(transform.rotation.eulerAngles.z);
+       
         transform.eulerAngles = new Vector3(0, 0, transform.rotation.eulerAngles.z - 20);
         Instantiate(bullet, transform.position, transform.rotation);
-        Debug.Log(transform.rotation.eulerAngles.z);
+
 
         Destroy(gameObject);
     }

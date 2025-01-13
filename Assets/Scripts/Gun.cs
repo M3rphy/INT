@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Gun : MonoBehaviour
 {
@@ -17,8 +18,10 @@ public class Gun : MonoBehaviour
     private bool isReloading = false;
     private float fireTimer;
     private float currentDelay;
-   
     private Rigidbody2D gunRBody;
+
+    public UnityEvent ReloadVisExecute;
+
     void Awake()
     {
         gunRBody = GetComponent<Rigidbody2D>();
@@ -61,7 +64,7 @@ public class Gun : MonoBehaviour
     private IEnumerator Reload()
     {
         Debug.Log("Reloading");
-    
+        ReloadVisExecute.Invoke();
         isReloading = true;
         canReload = false;
         yield return new WaitForSeconds(reloadTime);

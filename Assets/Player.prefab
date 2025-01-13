@@ -429,6 +429,21 @@ MonoBehaviour:
   - {fileID: 331996301414693634, guid: f8f37fa159bfdcc45992a7012a73cd0e, type: 3}
   curMagazinSize: 6
   reloadTime: 2
+  ReloadVisExecute:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5192263725896075588, guid: d3c6ebfcc4fd7a14f9e8903bf856f914, type: 3}
+        m_TargetAssemblyTypeName: FollowPlayer, Assembly-CSharp
+        m_MethodName: startVisualReload
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6184745487173863803
 GameObject:
   m_ObjectHideFlags: 0
