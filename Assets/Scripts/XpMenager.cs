@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class XpMenager : MonoBehaviour
 {
     [Header("XP Menager")]
-    [SerializeField] private Image xpBar;
+    private Image xpBar;
     [SerializeField] private float curXp;
     [SerializeField] private float maxXp;
     public int level = 1;
@@ -15,6 +15,7 @@ public class XpMenager : MonoBehaviour
     
     private void Start()
     {
+        xpBar = GameObject.Find("Canvas (1)").transform.GetChild(4).gameObject.GetComponent<Image>();
         xpBar.fillAmount = 0;
     }
     public void GainXp()

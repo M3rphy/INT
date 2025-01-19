@@ -11,13 +11,13 @@ public class Gun : MonoBehaviour
     
     [SerializeField] private Transform firingPoint;
     [SerializeField] private float fireRate = 0.5f;
-    [SerializeField] private GameObject[] magazin;
+    public GameObject[] magazine;
     public int curMagazinSize = 6;
-    [SerializeField] private float reloadTime = 2f;
+    public float reloadTime = 2f;
     private bool canReload = true;
-    private bool isReloading = false;
+    public bool isReloading = false;
     private float fireTimer;
-    private float currentDelay;
+    public float currentDelay;
     private Rigidbody2D gunRBody;
 
     public UnityEvent ReloadVisExecute;
@@ -30,11 +30,11 @@ public class Gun : MonoBehaviour
     void Update()
     {
      
-        if (Input.GetKeyDown(KeyCode.R) || !(curMagazinSize > 0) && canReload )
+        if ((Input.GetKeyDown(KeyCode.R) || !(curMagazinSize > 0)) && canReload && !isReloading && curMagazinSize != 6)
         {
             StartCoroutine(Reload());
         }
-        if (Input.GetMouseButton(0) && fireTimer <= 0f && !isReloading && curMagazinSize > 0)
+        if (Input.GetMouseButton(0) && fireTimer <= 0f && !isReloading && curMagazinSize > 0 && !player.isDashing && !(Time.timeScale == 0))
         {
             Shoot(curMagazinSize - 1);
             fireTimer = fireRate;
@@ -59,12 +59,12 @@ public class Gun : MonoBehaviour
     private void Shoot(int whichBullet)
     {
         curMagazinSize--;
-        Instantiate(magazin[whichBullet], firingPoint.position, firingPoint.rotation);
+        Instantiate(magazine[whichBullet], firingPoint.position, firingPoint.rotation);
     }
     private IEnumerator Reload()
     {
         Debug.Log("Reloading");
-        //ReloadVisExecute.Invoke();
+        
         isReloading = true;
         canReload = false;
         yield return new WaitForSeconds(reloadTime);

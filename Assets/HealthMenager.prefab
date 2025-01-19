@@ -45,6 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelsMenager: {fileID: 4994341037175074589, guid: 9ec8e696ecb6bcd439805b57bc9354cd, type: 3}
-  healthBar: {fileID: 0}
   currentHealth: 100
   MaxHealth: 100

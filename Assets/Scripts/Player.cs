@@ -9,31 +9,20 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     public Rigidbody2D rBody;
-    [SerializeField] private float speed;
+    public float speed;
     private Vector2 moveInput;
-    [SerializeField] private GameObject levelsMenager;
-
+   
 
 
     public UnityEvent takeDamge;
     public UnityEvent increaseXp;
      
 
-
-
-
-    //[Header("Health Menager")]
-    //[SerializeField] private Image healthBar;
-    //[SerializeField] private float currentHealth = 100f;
-    //[SerializeField] private float MaxHealth = 100f;
-
-
-
     [Header("Dash Settings")]
     [SerializeField] private float dashSpeed = 10f;
     [SerializeField] private float dashDuration = 1f; 
     [SerializeField] private float dashCooldown = 1f;
-    private bool isDashing;
+    public bool isDashing;
     private bool canDash = true;
     
     void Start()
@@ -48,8 +37,7 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        if (levelsMenager.GetComponent<LevelUpScreen>().SpeedUpEvent) 
-        { IncreaseSpeed(); };
+        
         if (isDashing) { return; }
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
@@ -78,10 +66,9 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(dashCooldown);
         canDash=true;
     }
-    private void IncreaseSpeed()
+    public void IncreaseSpeed()
     {
-        speed += 1;
-        levelsMenager.GetComponent<LevelUpScreen>().SpeedUpEvent = false;
+        GameObject.Find("Player").GetComponent<Player>().speed += 1; 
     }
 
 
@@ -102,23 +89,5 @@ public class Player : MonoBehaviour
             takeDamge.Invoke();
         }
     }
-    //private void OnCollisionExit2D(Collision2D other)
-    //{
-    //    if (other.gameObject.CompareTag("Enemy"))
-    //    {
-            
-            
-    //    }
-    //}
-    
-    //private void UpdateHealthBar()
-    //{
-    //    healthBar.fillAmount = currentHealth / MaxHealth;
-    //}
-    //public void IncreaseHp()
-    //{
-    //    MaxHealth = MaxHealth + 20;
-    //    Debug.Log(MaxHealth);
-    //    UpdateHealthBar();
-    //}
+
 }

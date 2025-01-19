@@ -647,13 +647,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6f7cf61ae9ff34b829a6b93e6082cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 0}
   buttons:
   - {fileID: 3416993956670523940, guid: 29840dfa39f07554f99d68874ae1c776, type: 3}
   - {fileID: 5727636018713240081, guid: 52d369b4d1df61c4f8292f664c982ec7, type: 3}
   - {fileID: 9050845360502514819, guid: c70b85e891f637a4c97b7b3883e3286b, type: 3}
   buttonsNum: 3
-  levelsMenager: {fileID: 4994341037175074589, guid: 9ec8e696ecb6bcd439805b57bc9354cd, type: 3}
+  magazine: {fileID: 1212615593897288092, guid: 1d8836e0cdac3964c835850166d7cdfd, type: 3}
+  displayNextBullet:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 912288550927129433, guid: 1d8836e0cdac3964c835850166d7cdfd, type: 3}
+        m_TargetAssemblyTypeName: MagazineDisplay, Assembly-CSharp
+        m_MethodName: DisplayNextBullet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  x: 0
 --- !u!114 &5192263725896075588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -667,4 +682,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 221897692527421143, guid: 24591e0e330acfd4688e2cd1049eb54d, type: 3}
-  reloadImage: {fileID: 8131170805807504610}
+  x: 0

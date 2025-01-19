@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HpUpEvent: 0
+  SpeedUpEvent: 0
   DestroyElements: 0
   a: 1

@@ -7,41 +7,34 @@ public class HealthMenager : MonoBehaviour
 {
     [Header("Health Menager")]
     [SerializeField] private GameObject levelsMenager;
-    [SerializeField] private Image healthBar;
-    [SerializeField] private float currentHealth = 100f;
-    [SerializeField] private float MaxHealth = 100f;
-   
- 
-    private void Update()
-    {
-        if(levelsMenager.GetComponent<LevelUpScreen>().HpUpEvent)
-        {
-            IncreaseHp();
-        }
-    }
+     private Image healthBar;
+    public float currentHealth = 100f;
+    public float MaxHealth = 100f;
+
 
     private void UpdateHealthBar()
     {
+        healthBar = GameObject.Find("Canvas (1)").transform.GetChild(1).gameObject.GetComponent<Image>();
+        Debug.Log(currentHealth+" max: "+MaxHealth);
         healthBar.fillAmount = currentHealth / MaxHealth;
     }
 
     public void TakeDemage()
     {
-        currentHealth -= 2;
-        Debug.Log(currentHealth);
+       currentHealth -= 2;
         UpdateHealthBar(); 
     }
     public void IncreaseHp()
     {
+        MaxHealth = GameObject.Find("HealthMenager").GetComponent<HealthMenager>().MaxHealth += 20;
         
-        MaxHealth += 20;
-        currentHealth = currentHealth * (MaxHealth / 100);
-        if(currentHealth > MaxHealth )
+        GameObject.Find("HealthMenager").GetComponent<HealthMenager>().currentHealth = GameObject.Find("HealthMenager").GetComponent<HealthMenager>().currentHealth * (MaxHealth / 100);
+        if (GameObject.Find("HealthMenager").GetComponent<HealthMenager>().currentHealth > MaxHealth)
         {
-            currentHealth = MaxHealth;
+            GameObject.Find("HealthMenager").GetComponent<HealthMenager>().currentHealth = MaxHealth;
         }
-        Debug.Log(MaxHealth);
+        currentHealth = GameObject.Find("HealthMenager").GetComponent<HealthMenager>().currentHealth;
         UpdateHealthBar();
-        levelsMenager.GetComponent<LevelUpScreen>().HpUpEvent = false;
+     
     }
 }

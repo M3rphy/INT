@@ -51,16 +51,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rBody: {fileID: 0}
   speed: 7
-  levelsMenager: {fileID: 4994341037175074589, guid: 9ec8e696ecb6bcd439805b57bc9354cd, type: 3}
   takeDamge:
     m_PersistentCalls:
       m_Calls: []
   increaseXp:
     m_PersistentCalls:
       m_Calls: []
-  dashSpeed: 20
+  dashSpeed: 25
   dashDuration: 0.35
   dashCooldown: 1
+  isDashing: 0
 --- !u!50 &3058881520284649198
 Rigidbody2D:
   serializedVersion: 4
@@ -420,15 +420,17 @@ MonoBehaviour:
   player: {fileID: 649889982829929814}
   firingPoint: {fileID: 7894457299178851868}
   fireRate: 0.5
-  magazin:
-  - {fileID: 331996301414693634, guid: f8f37fa159bfdcc45992a7012a73cd0e, type: 3}
-  - {fileID: 331996301414693634, guid: f8f37fa159bfdcc45992a7012a73cd0e, type: 3}
-  - {fileID: 331996301414693634, guid: f8f37fa159bfdcc45992a7012a73cd0e, type: 3}
-  - {fileID: 331996301414693634, guid: f8f37fa159bfdcc45992a7012a73cd0e, type: 3}
-  - {fileID: 331996301414693634, guid: f8f37fa159bfdcc45992a7012a73cd0e, type: 3}
-  - {fileID: 331996301414693634, guid: f8f37fa159bfdcc45992a7012a73cd0e, type: 3}
+  magazine:
+  - {fileID: 331996301414693634, guid: 9371e663204dc5740abb73d313e9f71d, type: 3}
+  - {fileID: 331996301414693634, guid: 9371e663204dc5740abb73d313e9f71d, type: 3}
+  - {fileID: 331996301414693634, guid: 9371e663204dc5740abb73d313e9f71d, type: 3}
+  - {fileID: 331996301414693634, guid: 9371e663204dc5740abb73d313e9f71d, type: 3}
+  - {fileID: 331996301414693634, guid: 9371e663204dc5740abb73d313e9f71d, type: 3}
+  - {fileID: 331996301414693634, guid: 9371e663204dc5740abb73d313e9f71d, type: 3}
   curMagazinSize: 6
   reloadTime: 2
+  isReloading: 0
+  currentDelay: 0
   ReloadVisExecute:
     m_PersistentCalls:
       m_Calls:

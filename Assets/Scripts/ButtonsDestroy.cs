@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class ButtonsDestroy : MonoBehaviour
 {
@@ -12,9 +13,11 @@ public class ButtonsDestroy : MonoBehaviour
     
     void Update()
     {
-        if (levelsMenager.GetComponent<LevelUpScreen>().DestroyElements)
-        {
-            Destroy(gameObject);
-        }
+        //if (levelsMenager.GetComponent<LevelUpScreen>().DestroyElements)
+        //{
+        //    Destroy(gameObject);
+        //    //levelsMenager.GetComponent<LevelUpScreen>().DestroyElements = false;
+        //}
     }
+   
 }
