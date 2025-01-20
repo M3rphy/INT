@@ -8,7 +8,8 @@ using UnityEngine.UI;
 public class ReloadVisual : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-     private GameObject gun;
+    [SerializeField] private Canvas canvas;
+    private GameObject gun;
     private Image reloadImage;
     public float x ;
 
@@ -36,9 +37,7 @@ public class ReloadVisual : MonoBehaviour
             x = 0;
         }
       
-        player = GameObject.FindGameObjectWithTag("Player");
-        Vector2 pos = new Vector2(player.transform.position.x, player.transform.position.y+2.5f);
-        reloadImage.transform.position = pos;
+        
         reloadImage.fillAmount = x;
          //Debug.Log(x);
     }
@@ -50,10 +49,6 @@ public class ReloadVisual : MonoBehaviour
         
      
     }
-     private float VisualUpdate(float x)
-    {   
-        Debug.Log(x);
-        return x;
-    }
+     
   
 }

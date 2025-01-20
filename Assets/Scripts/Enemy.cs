@@ -40,21 +40,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
-         if (other.gameObject.CompareTag("Bullet"))
+        if (other.gameObject.CompareTag("Bullet"))
         {
             Destroy(other.gameObject);
             hp -= 1;
         }
-        //if(other.gameObject.CompareTag("Enemy"))
-        //{
-        //    canMove = false;
-        //    Debug.Log("bb");
-        //}
-
     }
-    
-    
+
+
 }

@@ -14,18 +14,10 @@ public class Bullet : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(GetComponent<Collider2D>().enabled == false)
-        {
-
-            StartCoroutine(x());
-        }
+       
         rb.velocity = transform.up * speed;
     }
-    private IEnumerator x()
-    {
-        yield return new WaitForSeconds(0.05F);
-        GetComponent<Collider2D>().enabled = true;
-    }
+    
     private void OnCollisionEnter2D(Collision2D other)
     {
 
@@ -43,10 +35,7 @@ public class Bullet : MonoBehaviour
         {
             rb.bodyType = RigidbodyType2D.Kinematic;
         }
-        if (other.gameObject.CompareTag("Bullet"))
-        {
-            GetComponent<Collider2D>().enabled = false;
-        }
+      
 
     }
     private void OnCollisionExit2D(Collision2D other)

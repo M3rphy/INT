@@ -11,7 +11,8 @@ public class Player : MonoBehaviour
     public Rigidbody2D rBody;
     public float speed;
     private Vector2 moveInput;
-   
+
+    [SerializeField] private GameObject[] upgradesBulletsList;
 
 
     public UnityEvent takeDamge;
@@ -70,7 +71,13 @@ public class Player : MonoBehaviour
     {
         GameObject.Find("Player").GetComponent<Player>().speed += 1; 
     }
-
+    public void changeBullet(int magazinSlot)
+    {
+        int x = GameObject.Find("Canvas (1)").GetComponent<OptionsDisplay>().x;
+        Debug.Log(magazinSlot + " " + x);
+        GameObject.Find("Player").transform.GetChild(1).gameObject.GetComponent<Gun>().magazine[magazinSlot] = upgradesBulletsList[x];
+        Time.timeScale = 1;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

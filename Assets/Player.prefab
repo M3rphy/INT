@@ -51,6 +51,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rBody: {fileID: 0}
   speed: 7
+  upgradesBulletsList:
+  - {fileID: 331996301414693634, guid: f8f37fa159bfdcc45992a7012a73cd0e, type: 3}
   takeDamge:
     m_PersistentCalls:
       m_Calls: []
@@ -427,7 +429,8 @@ MonoBehaviour:
   - {fileID: 331996301414693634, guid: 9371e663204dc5740abb73d313e9f71d, type: 3}
   - {fileID: 331996301414693634, guid: 9371e663204dc5740abb73d313e9f71d, type: 3}
   - {fileID: 331996301414693634, guid: 9371e663204dc5740abb73d313e9f71d, type: 3}
-  curMagazinSize: 6
+  curMagazinSize: 0
+  maxMagazinSize: 6
   reloadTime: 2
   isReloading: 0
   currentDelay: 0
