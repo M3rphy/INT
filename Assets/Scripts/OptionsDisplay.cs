@@ -12,42 +12,61 @@ public class OptionsDisplay : MonoBehaviour
     [SerializeField] private GameObject[] buttons;
     [SerializeField] private int buttonsNum;
     [SerializeField] private GameObject magazine;
+    [SerializeField] private GameObject startButton;
+    [SerializeField] private GameObject quitButton;
     private int temp;
     private int temp2;
     private int temp3;
     public UnityEvent displayNextBullet;
     public int x;
+    private bool isPauzed = false;
 
     private void Start()
     {
         background = this.transform.GetChild(5).gameObject.GetComponent<Image>();
     }
-
     private void Update()
     {
-            
-           
-        //if (levelsMenager.GetComponent<LevelUpScreen>().HideBackground)
-        //{
-            
-        //    DestroyOptions();
-        //}
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (!isPauzed)
+            {
+                Instantiate(startButton, GameObject.Find("Canvas (1)").transform);
+                Instantiate(quitButton, GameObject.Find("Canvas (1)").transform);
+                Time.timeScale = 0;
+                DisplayPauza();
+                
+                isPauzed = true;
+            }
+            else
+            {
+                DestroyPauza();
+            }
+        }
     }
-    
+    public void DestroyPauza()
+    {
+        Destroy(GameObject.Find("Magazine(Clone)"));
+        Destroy(GameObject.Find("StartButton(Clone)"));
+        Destroy(GameObject.Find("QuitButton(Clone)"));
+        HideBackground();
+        GameObject.Find("Canvas (1)").GetComponent<OptionsDisplay>().isPauzed = false;
+    }
+    private void DisplayPauza()
+    {
+        background.enabled = true;
+        Instantiate(magazine, GameObject.Find("Canvas (1)").transform);
+    }
     public void DisplayOptions()
     {
         background.enabled = true;
-        //levelsMenager.GetComponent<LevelUpScreen>().DestroyElements = false;
-        //levelsMenager.GetComponent<LevelUpScreen>().HideBackground = false;
-
         //1 button
         int a = Random.Range(0, buttonsNum);
         temp = a;
 
         Instantiate(buttons[a], this.transform);
-        Vector3 pos = buttons[a].transform.position;
-        pos.x = -300f;
-        buttons[a].transform.position = pos;
+        GameObject.Find(buttons[a].name+"(Clone)").transform.position = new Vector2(300,400);
+       
 
         //2 button
         while (temp == a)
@@ -57,8 +76,7 @@ public class OptionsDisplay : MonoBehaviour
         temp2 = a;
     
         Instantiate(buttons[a], this.transform);
-        pos.x = 0f;
-        buttons[a].transform.position = pos;
+        GameObject.Find(buttons[a].name + "(Clone)").transform.position = new Vector2(600, 400);
 
         //3button
         while (temp2 == a || temp == a)
@@ -68,8 +86,7 @@ public class OptionsDisplay : MonoBehaviour
         temp3 = a;
         
         Instantiate(buttons[a], this.transform);
-        pos.x = 300f;
-        buttons[a].transform.position = pos;
+        GameObject.Find(buttons[a].name + "(Clone)").transform.position = new Vector2(900, 400);
         Time.timeScale = 0;
         Debug.Log("Time stop");
     }
@@ -81,7 +98,6 @@ public class OptionsDisplay : MonoBehaviour
         {
             Destroy(x);
         }
-        //levelsMenager.GetComponent<LevelUpScreen>().DestroyElements = false;
     }
     public void HideBackground()
     {
@@ -95,5 +111,9 @@ public class OptionsDisplay : MonoBehaviour
         Debug.Log(selectedUpgrade);
         GameObject.Find("Canvas (1)").GetComponent<OptionsDisplay>().x = selectedUpgrade;
         displayNextBullet.Invoke();
+    }
+    public void DestroyMagazine()
+    {
+        Destroy(GameObject.Find("Magazine(Clone)"));
     }
 }

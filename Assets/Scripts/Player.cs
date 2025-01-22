@@ -8,6 +8,7 @@ using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
+    private Animator animator;
     public Rigidbody2D rBody;
     public float speed;
     private Vector2 moveInput;
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
     }
     void Awake()
     {
+        animator = transform.GetChild(0).GetComponent<Animator>();
         
 
         rBody = GetComponent<Rigidbody2D>();
@@ -48,6 +50,14 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         if (isDashing) { return; }
+        if(moveInput == Vector2.zero)
+        {
+            animator.SetBool("IsMoving", false);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", true);
+        }
         rBody.velocity = moveInput * speed;
     }
     private void OnMove(InputValue inputValue)

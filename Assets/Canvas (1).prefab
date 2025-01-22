@@ -651,8 +651,11 @@ MonoBehaviour:
   - {fileID: 3416993956670523940, guid: 29840dfa39f07554f99d68874ae1c776, type: 3}
   - {fileID: 5727636018713240081, guid: 52d369b4d1df61c4f8292f664c982ec7, type: 3}
   - {fileID: 9050845360502514819, guid: c70b85e891f637a4c97b7b3883e3286b, type: 3}
-  buttonsNum: 3
+  - {fileID: 9050845360502514819, guid: 5b6317d082658d44fa1a49237b3273f8, type: 3}
+  buttonsNum: 4
   magazine: {fileID: 1212615593897288092, guid: 1d8836e0cdac3964c835850166d7cdfd, type: 3}
+  startButton: {fileID: 7456274669922351061, guid: ebad7e23e37c3ed4b98aa150d2cc8c4e, type: 3}
+  quitButton: {fileID: 7638137427564142028, guid: d528ceee3d7077d4abb6a6f7b7c85481, type: 3}
   displayNextBullet:
     m_PersistentCalls:
       m_Calls:
@@ -682,4 +685,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 221897692527421143, guid: 24591e0e330acfd4688e2cd1049eb54d, type: 3}
+  canvas: {fileID: 0}
   x: 0

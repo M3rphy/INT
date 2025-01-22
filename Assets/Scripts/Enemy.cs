@@ -48,6 +48,10 @@ public class Enemy : MonoBehaviour
             Destroy(other.gameObject);
             hp -= 1;
         }
+        if (other.gameObject.CompareTag("Laser"))
+        {
+            hp = 0;
+        }
     }
 
 

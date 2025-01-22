@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthMenager : MonoBehaviour
@@ -11,7 +12,10 @@ public class HealthMenager : MonoBehaviour
     public float currentHealth = 100f;
     public float MaxHealth = 100f;
 
-
+    private void Death()
+    {
+        SceneManager.LoadScene(1);
+    }
     private void UpdateHealthBar()
     {
         healthBar = GameObject.Find("Canvas (1)").transform.GetChild(1).gameObject.GetComponent<Image>();
@@ -22,6 +26,10 @@ public class HealthMenager : MonoBehaviour
     public void TakeDemage()
     {
        currentHealth -= 2;
+        if(currentHealth <= 0)
+        {
+            Death();
+        }
         UpdateHealthBar(); 
     }
     public void IncreaseHp()

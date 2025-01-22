@@ -23,22 +23,25 @@ public class ReloadVisual : MonoBehaviour
     {
         if (gun.GetComponent<Gun>().isReloading) 
         { 
+            
             gun.GetComponent<Gun>().currentDelay+= Time.deltaTime;
             startVisualReload(); 
             if(gun.GetComponent<Gun>().currentDelay>2f)
             {
                 x = 0;
+                reloadImage.fillAmount = x;
                 gun.GetComponent<Gun>().currentDelay = 0;
                 return;
             }
+            
         }
         else
         {
             x = 0;
         }
-      
-        
         reloadImage.fillAmount = x;
+        
+        
          //Debug.Log(x);
     }
     

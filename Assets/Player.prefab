@@ -53,6 +53,7 @@ MonoBehaviour:
   speed: 7
   upgradesBulletsList:
   - {fileID: 331996301414693634, guid: f8f37fa159bfdcc45992a7012a73cd0e, type: 3}
+  - {fileID: 331996301414693634, guid: 91158b60d556de74db442b3f43082a7a, type: 3}
   takeDamge:
     m_PersistentCalls:
       m_Calls: []

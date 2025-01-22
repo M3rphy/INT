@@ -17,10 +17,18 @@ public class MagazineDisplay : MonoBehaviour
     public void DisplayNextBullet()
     {
         int x = GameObject.Find("Canvas (1)").GetComponent<OptionsDisplay>().x;
-        Debug.Log(x);
+    
         if (x == 1)
         {
             nextBullet.GetComponent<Image>().color = Color.red;
+        }
+        else if(x == 0 )
+        {
+            nextBullet.GetComponent<Image>().color = Color.yellow;
+        }
+        else
+        {
+            nextBullet.GetComponent<Image>().color = Color.white;
         }
         Instantiate(nextBullet, GameObject.Find("Magazine(Clone)").transform);
     }
@@ -37,6 +45,10 @@ public class MagazineDisplay : MonoBehaviour
         if (GameObject.Find("Gun").GetComponent<Gun>().magazine[i].name == "TripleBullet")
         {
             return Color.yellow;
+        }
+        if (GameObject.Find("Gun").GetComponent<Gun>().magazine[i].name == "Laser")
+        {
+            return Color.red;
         }
         else if (GameObject.Find("Gun").GetComponent<Gun>().magazine[i].name == "Bullet")
         {

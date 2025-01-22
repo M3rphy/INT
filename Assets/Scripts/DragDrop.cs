@@ -37,7 +37,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEn
 
     void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("aa");
+        
     }
 
 }

@@ -55,6 +55,14 @@ public class Gun : MonoBehaviour
         Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
 
         transform.up = direction;
+  
+        if (direction.x < 0) {
+            player.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            player.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
+        }
         
     }
     private void Shoot(int whichBullet)
