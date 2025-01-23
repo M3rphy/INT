@@ -652,7 +652,9 @@ MonoBehaviour:
   - {fileID: 5727636018713240081, guid: 52d369b4d1df61c4f8292f664c982ec7, type: 3}
   - {fileID: 9050845360502514819, guid: c70b85e891f637a4c97b7b3883e3286b, type: 3}
   - {fileID: 9050845360502514819, guid: 5b6317d082658d44fa1a49237b3273f8, type: 3}
-  buttonsNum: 4
+  - {fileID: 5727636018713240081, guid: 30616b765996c2f4085fd88be68e9f7d, type: 3}
+  - {fileID: 9050845360502514819, guid: 482f8b617115fc74b9a72f7cf78dc7d5, type: 3}
+  buttonsNum: 6
   magazine: {fileID: 1212615593897288092, guid: 1d8836e0cdac3964c835850166d7cdfd, type: 3}
   startButton: {fileID: 7456274669922351061, guid: ebad7e23e37c3ed4b98aa150d2cc8c4e, type: 3}
   quitButton: {fileID: 7638137427564142028, guid: d528ceee3d7077d4abb6a6f7b7c85481, type: 3}

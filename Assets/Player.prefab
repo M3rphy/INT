@@ -54,6 +54,7 @@ MonoBehaviour:
   upgradesBulletsList:
   - {fileID: 331996301414693634, guid: f8f37fa159bfdcc45992a7012a73cd0e, type: 3}
   - {fileID: 331996301414693634, guid: 91158b60d556de74db442b3f43082a7a, type: 3}
+  - {fileID: 331996301414693634, guid: 19788035529ae45438d5e2f94ee93107, type: 3}
   takeDamge:
     m_PersistentCalls:
       m_Calls: []
@@ -181,13 +182,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174214411974453185}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.23, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.118, y: 1.236, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 498024926112144967}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &6008301594672671861
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -229,8 +230,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e9fbcaf2d8fab484a89c19faac9d367b, type: 3}
+  m_Color: {r: 1, g: 0.99433964, b: 0.99433964, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

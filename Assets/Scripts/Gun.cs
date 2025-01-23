@@ -58,10 +58,12 @@ public class Gun : MonoBehaviour
   
         if (direction.x < 0) {
             player.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+            transform.GetChild(0).GetComponent<SpriteRenderer>().flipY = true;
         }
         else
         {
             player.transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
+            transform.GetChild(0).GetComponent<SpriteRenderer>().flipY = false;
         }
         
     }

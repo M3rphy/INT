@@ -26,6 +26,10 @@ public class MagazineDisplay : MonoBehaviour
         {
             nextBullet.GetComponent<Image>().color = Color.yellow;
         }
+        else if(x == 2)
+        {
+            nextBullet.GetComponent<Image>().color = Color.gray;
+        }
         else
         {
             nextBullet.GetComponent<Image>().color = Color.white;
@@ -46,9 +50,13 @@ public class MagazineDisplay : MonoBehaviour
         {
             return Color.yellow;
         }
-        if (GameObject.Find("Gun").GetComponent<Gun>().magazine[i].name == "Laser")
+        else if (GameObject.Find("Gun").GetComponent<Gun>().magazine[i].name == "Laser")
         {
             return Color.red;
+        }
+        else if (GameObject.Find("Gun").GetComponent<Gun>().magazine[i].name == "BombBullet")
+        {
+            return Color.gray;
         }
         else if (GameObject.Find("Gun").GetComponent<Gun>().magazine[i].name == "Bullet")
         {

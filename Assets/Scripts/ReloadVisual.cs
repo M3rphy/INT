@@ -25,8 +25,9 @@ public class ReloadVisual : MonoBehaviour
         { 
             
             gun.GetComponent<Gun>().currentDelay+= Time.deltaTime;
-            startVisualReload(); 
-            if(gun.GetComponent<Gun>().currentDelay>2f)
+            startVisualReload();
+            
+            if (gun.GetComponent<Gun>().currentDelay>gun.GetComponent<Gun>().reloadTime)
             {
                 x = 0;
                 reloadImage.fillAmount = x;

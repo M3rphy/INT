@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 3368968027687200402}
   - component: {fileID: 743846762549157395}
   - component: {fileID: 2894812670965421672}
+  - component: {fileID: 8688544912245566840}
   - component: {fileID: 8005574889760221572}
-  - component: {fileID: 8898713744239748676}
+  - component: {fileID: 6842536937109021679}
   m_Layer: 0
   m_Name: BombBullet
-  m_TagString: Bullet
+  m_TagString: BombBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,8 +96,22 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 1}
   m_Direction: 0
+--- !u!114 &8688544912245566840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331996301414693634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 463df3840ce6b6745886150cc5f2cb79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  lifeTime: 1
 --- !u!212 &8005574889760221572
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -138,8 +153,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.9622642, g: 0.95591164, b: 0, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0.645283, g: 0.645283, b: 0.645283, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,7 +164,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8898713744239748676
+--- !u!114 &6842536937109021679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,8 +173,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 331996301414693634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4d9cbf56aa92fa4aa6ec36796949134, type: 3}
+  m_Script: {fileID: 11500000, guid: 463df3840ce6b6745886150cc5f2cb79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
-  lifeTime: 2
+  speed: 10
+  lifeTime: 1

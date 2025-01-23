@@ -40,10 +40,18 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        
+         if (!(transform.position.x + moveInput.x < 17.781f - 0.5f)|| !(transform.position.x + moveInput.x > -17.781f + 0.5))
+        {
+            moveInput.x = 0 ;
+        }
+        if(!(transform.position.y + moveInput.y < 10 - 0.5f) || !(transform.position.y + moveInput.y > -10 + 0.5f))
+        {
+            moveInput.y = 0 ;
+        }
         if (isDashing) { return; }
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
+            
             StartCoroutine(Dash());
         }
     }
@@ -58,7 +66,8 @@ public class Player : MonoBehaviour
         {
             animator.SetBool("IsMoving", true);
         }
-        rBody.velocity = moveInput * speed;
+      
+            rBody.velocity = moveInput * speed;
     }
     private void OnMove(InputValue inputValue)
     {
@@ -69,6 +78,7 @@ public class Player : MonoBehaviour
         canDash = false;
         isDashing = true;
         GetComponent<Collider2D>().enabled = false;
+     
         rBody.velocity = moveInput * dashSpeed;
         yield return new WaitForSeconds(dashDuration);
         GetComponent<Collider2D>().enabled = true;
@@ -80,6 +90,13 @@ public class Player : MonoBehaviour
     public void IncreaseSpeed()
     {
         GameObject.Find("Player").GetComponent<Player>().speed += 1; 
+    }
+    public void IncreaseReloadingSpeed()
+    {
+        if(GameObject.Find("Gun").GetComponent<Gun>().reloadTime - .5f > 0)
+        {
+            GameObject.Find("Gun").GetComponent<Gun>().reloadTime -= .5f;
+        }
     }
     public void changeBullet(int magazinSlot)
     {

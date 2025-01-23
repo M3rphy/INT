@@ -27,6 +27,14 @@ public class Enemy : MonoBehaviour
         }
         
             Vector2 direction = target.position - transform.position;
+        if(direction.x >0) 
+        { 
+            transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
+        }
+        else
+        {
+            transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+        }
             transform.position = Vector2.MoveTowards(this.transform.position, target.position, speed * Time.deltaTime);
         
     
@@ -52,7 +60,13 @@ public class Enemy : MonoBehaviour
         {
             hp = 0;
         }
+        if (other.gameObject.CompareTag("BombBullet"))
+        {
+            hp -= 2/Vector2.Distance(this.transform.position, other.transform.position) + 1.5f ;
+        }
     }
+
+
 
 
 }
