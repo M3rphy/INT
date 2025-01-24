@@ -9,7 +9,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEn
     
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    
+    [SerializeField] private GameObject bulletSlot;
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -32,7 +33,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler,IBeginDragHandler,IEn
     {
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
-        rectTransform.position = new Vector2(200,325);
+        rectTransform.position = MagazineDisplay.panelStatic.position;
+        Debug.Log(bulletSlot.transform.Find("Panel1").name);
     }
 
     void IPointerDownHandler.OnPointerDown(PointerEventData eventData)

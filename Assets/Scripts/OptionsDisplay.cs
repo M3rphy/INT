@@ -20,6 +20,7 @@ public class OptionsDisplay : MonoBehaviour
     public UnityEvent displayNextBullet;
     public int x;
     private bool isPauzed = false;
+    [SerializeField] private Transform panel;
 
     private void Start()
     {
@@ -64,8 +65,8 @@ public class OptionsDisplay : MonoBehaviour
         int a = Random.Range(0, buttonsNum);
         temp = a;
 
-        Instantiate(buttons[a], this.transform);
-        GameObject.Find(buttons[a].name+"(Clone)").transform.position = new Vector2(300,400);
+        Instantiate(buttons[a], panel);
+    
        
 
         //2 button
@@ -75,8 +76,8 @@ public class OptionsDisplay : MonoBehaviour
         }
         temp2 = a;
     
-        Instantiate(buttons[a], this.transform);
-        GameObject.Find(buttons[a].name + "(Clone)").transform.position = new Vector2(600, 400);
+        Instantiate(buttons[a], panel);
+        
 
         //3button
         while (temp2 == a || temp == a)
@@ -85,8 +86,8 @@ public class OptionsDisplay : MonoBehaviour
         }
         temp3 = a;
         
-        Instantiate(buttons[a], this.transform);
-        GameObject.Find(buttons[a].name + "(Clone)").transform.position = new Vector2(900, 400);
+        Instantiate(buttons[a], panel);
+      
         Time.timeScale = 0;
         Debug.Log("Time stop");
     }
@@ -107,10 +108,10 @@ public class OptionsDisplay : MonoBehaviour
     }
     public void DisplayMagazine(int selectedUpgrade)
     {
-        Instantiate(magazine, GameObject.Find("Canvas (1)").transform);
-        Debug.Log(selectedUpgrade);
         GameObject.Find("Canvas (1)").GetComponent<OptionsDisplay>().x = selectedUpgrade;
+        Instantiate(magazine, GameObject.Find("Canvas (1)").transform);
         displayNextBullet.Invoke();
+   
     }
     public void DestroyMagazine()
     {

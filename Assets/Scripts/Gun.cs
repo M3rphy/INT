@@ -79,6 +79,7 @@ public class Gun : MonoBehaviour
         isReloading = true;
         canReload = false;
         yield return new WaitForSeconds(reloadTime);
+        currentDelay = 0;
         curMagazinSize = 0;
         canReload = true;
         isReloading = false;

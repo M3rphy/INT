@@ -9,8 +9,10 @@ public class MagazineDisplay : MonoBehaviour
 {
     [SerializeField] private GameObject[] VBullets;
     [SerializeField] private GameObject nextBullet;
-    private GameObject gun;
-    private GameObject[] magazine;
+    [SerializeField] private Sprite[] images;
+    [SerializeField] private Transform panel;
+    static public Transform panelStatic;
+   
 
     
    
@@ -20,48 +22,52 @@ public class MagazineDisplay : MonoBehaviour
     
         if (x == 1)
         {
-            nextBullet.GetComponent<Image>().color = Color.red;
+            nextBullet.GetComponent<Image>().sprite = images[2];
         }
         else if(x == 0 )
         {
-            nextBullet.GetComponent<Image>().color = Color.yellow;
+            nextBullet.GetComponent<Image>().sprite = images[1];
         }
         else if(x == 2)
         {
-            nextBullet.GetComponent<Image>().color = Color.gray;
+            nextBullet.GetComponent<Image>().sprite = images[3];
         }
         else
         {
-            nextBullet.GetComponent<Image>().color = Color.white;
+            nextBullet.GetComponent<Image>().sprite = images[0];
         }
-        Instantiate(nextBullet, GameObject.Find("Magazine(Clone)").transform);
+        GameObject bullet = Instantiate(nextBullet, GameObject.Find("Magazine(Clone)").transform);
+        
+      
     }
     private void Start()
     {
+        panelStatic = panel;
         for (int i = 0; i < 6; i++)
         {
-            VBullets[i].GetComponent<Image>().color = aaa(i);
-            Instantiate(VBullets[i], this.transform);
+            VBullets[i].GetComponent<Image>().sprite = GetBulletImage(i);
+            GameObject bulletSlot = Instantiate(VBullets[i], this.transform);
+            bulletSlot.transform.SetAsFirstSibling();
         }
     }
-    private Color aaa(int i)
+    private Sprite GetBulletImage(int i)
     {
         if (GameObject.Find("Gun").GetComponent<Gun>().magazine[i].name == "TripleBullet")
         {
-            return Color.yellow;
+            return images[1];
         }
         else if (GameObject.Find("Gun").GetComponent<Gun>().magazine[i].name == "Laser")
         {
-            return Color.red;
+            return images[2];
         }
         else if (GameObject.Find("Gun").GetComponent<Gun>().magazine[i].name == "BombBullet")
         {
-            return Color.gray;
+            return images[3];
         }
         else if (GameObject.Find("Gun").GetComponent<Gun>().magazine[i].name == "Bullet")
         {
-            return Color.white;
+            return images[0];
         }
-        return Color.white;
+        return images[0];
     }
 }
