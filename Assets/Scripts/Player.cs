@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using Unity.VisualScripting;
 
 
 public class Player : MonoBehaviour
@@ -40,14 +41,8 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-         if (!(transform.position.x + moveInput.x < 17.781f - 0.5f)|| !(transform.position.x + moveInput.x > -17.781f + 0.5))
-        {
-            moveInput.x = 0 ;
-        }
-        if(!(transform.position.y + moveInput.y < 10 - 0.5f) || !(transform.position.y + moveInput.y > -10 + 0.5f))
-        {
-            moveInput.y = 0 ;
-        }
+        transform.position =new Vector2(Mathf.Clamp(transform.position.x, -17.281f, 17.281f), Mathf.Clamp(transform.position.y, -9.5f, 9.5f));
+       
         if (isDashing) { return; }
         if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
