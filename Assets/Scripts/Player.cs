@@ -104,10 +104,8 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Crystal"))
-        {
-
+        { 
             increaseXp.Invoke();
-            Destroy(other.gameObject);
         }
     }
     private void OnCollisionStay2D(Collision2D other)
