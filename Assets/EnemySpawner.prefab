@@ -45,7 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnRate: 3
-  enemyPrefabs:
-  - {fileID: 8823329192929140874, guid: a6c9ecc75970239448db1a2fb140f8ab, type: 3}
-  canSpawn: 1
-  numOfEnemysType: 1
+  enemyPrefabs: {fileID: 8823329192929140874, guid: a6c9ecc75970239448db1a2fb140f8ab, type: 3}
+  rotateSpeed: 0

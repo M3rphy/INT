@@ -4,48 +4,23 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    //Prêdkoœæ pocisku oraz jego czas ¿ycia
     [SerializeField] private float speed = 10f;
     [SerializeField] private float lifeTime = 3f;
+    //Odniesienie do componentu RigidBody2D
     private Rigidbody2D rb;
+
+    //przypisanie rb oraz ustawianie czasu zniszczenia obiektu
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, lifeTime);
     }
+
+    // porusza sie w prosto w jednym kierunku z prêdkoœci¹ pocisku
     private void FixedUpdate()
     {
-       
         rb.velocity = transform.up * speed;
     }
-    
-    private void OnCollisionEnter2D(Collision2D other)
-    {
 
-        if (other.gameObject.CompareTag("Crystal"))
-       {
-            rb.bodyType = RigidbodyType2D.Kinematic;
-
-        }
-
-    }
-    private void OnCollisionStay2D(Collision2D other)
-    {
-
-        if (other.gameObject.CompareTag("Crystal"))
-        {
-            rb.bodyType = RigidbodyType2D.Kinematic;
-        }
-      
-
-    }
-    private void OnCollisionExit2D(Collision2D other)
-    {
-
-        if (other.gameObject.CompareTag("Crystal"))
-        {
-            rb.bodyType = RigidbodyType2D.Dynamic;
-        }
-       
-
-    }
 }

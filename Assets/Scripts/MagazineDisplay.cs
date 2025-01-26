@@ -7,15 +7,19 @@ using Unity.VisualScripting;
 
 public class MagazineDisplay : MonoBehaviour
 {
+    //lista wizualnych pocisków w benbenku
     [SerializeField] private GameObject[] VBullets;
+    //obiekt nastêpnego pocisku wk³adanego do bênbenka
     [SerializeField] private GameObject nextBullet;
+    //odniesienie do grafik pocisków w bêbenku
     [SerializeField] private Sprite[] images;
+    //odniesienie do lokalizacji gdzie ma pojawiaæ sie kolejny pocisk
     [SerializeField] private Transform panel;
     static public Transform panelStatic;
    
 
     
-   
+   //Sprawdzenie w liœcie który pocisk zosta³ wybrany przypisanie do niego odpowiednia grafiki oraz stworzenie jego prefaba w odpowiednim miejscu
     public void DisplayNextBullet()
     {
         int x = GameObject.Find("Canvas (1)").GetComponent<OptionsDisplay>().x;
@@ -40,6 +44,9 @@ public class MagazineDisplay : MonoBehaviour
         
       
     }
+    
+    // przypisanie panelowi static wartoœci z panela
+    //oraz pojawienie wszystkich szeœciu komur bembna
     private void Start()
     {
         panelStatic = panel;
@@ -50,6 +57,7 @@ public class MagazineDisplay : MonoBehaviour
             bulletSlot.transform.SetAsFirstSibling();
         }
     }
+    //funkcja ustawiaj¹ca zdjêcie do odpowiednich pocisków
     private Sprite GetBulletImage(int i)
     {
         if (GameObject.Find("Gun").GetComponent<Gun>().magazine[i].name == "TripleBullet")

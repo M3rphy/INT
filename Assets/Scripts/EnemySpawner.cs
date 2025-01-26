@@ -5,21 +5,23 @@ using UnityEngine.UIElements;
 
 public class EnemySpawner : MonoBehaviour
 {
+    //czas po którym sie pojawiaj¹ przeciwnicy 
     public float spawnRate = 1f;
-    [SerializeField] private GameObject[] enemyPrefabs;
-    [SerializeField] private bool canSpawn= true;
-    [SerializeField] private int numOfEnemysType = 1;
+    //odniesienie do prefaba przeciwników
+    [SerializeField] private GameObject enemyPrefabs;
+    //parametry potrzebne do obracania do oko³a planszy
     public float rotateSpeed;
     private float timer;
     private float positionX;
     private float positionY;
 
+    //rozpoczenie odliczania do powstania kolejnego przeciwnika
     void Start()
     {
-      
         StartCoroutine(Spawner());
     }
 
+    //funkcja która sie wykonuje po ka¿dym zdobyciu nowego poziomu zmniejszaj¹ca czas po którym powstaj¹ nowi przeciwnicy 
     public void increaseSpawnSpeed()
     {
         if (GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().spawnRate - .2f > 0)
@@ -27,21 +29,18 @@ public class EnemySpawner : MonoBehaviour
             GameObject.Find("EnemySpawner").GetComponent<EnemySpawner>().spawnRate -= .2f;
         }
     }
+    //odliczanie do powstania nowego przeciwnika
     private IEnumerator Spawner()
     {
         WaitForSeconds wait = new WaitForSeconds(spawnRate);
-        while (canSpawn)
+        while (true)
         {
             yield return wait;
-            int rand = Random.Range(0, numOfEnemysType);
-            GameObject enemyToSpawn = enemyPrefabs[rand];
-
-            Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
-            
-
+            Instantiate(enemyPrefabs, transform.position, Quaternion.identity);
         }
         
     }
+    //obracanie sie obiektu do oko³a sceny
     private void Update()
     {
         timer += Time.deltaTime * rotateSpeed;

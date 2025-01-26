@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    //Odniesienie do Prefaba kryszta³u
     [SerializeField] private GameObject crystalPrefab;
+    //iloœæ ¿ycia
     public float hp = 2;
+    //Pozycja gracza
     public Transform target;
+    //prêdkoœæ
     public float speed = 3f;
-    private Rigidbody2D rb;
-    //private bool canMove = true;
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+
+    //Funkcja Update sprawdza czy ¿ycie przeciwnika jest mniejsze lub równe zero jeœli tak to tworzy krysta³ i znika
+    //jeœli nie ma pozycji graca to wywo³uje funkcje GetTarget
+    //kieruje przeciwnika w strone gracza 
+    //i obraca sprita w zale¿noœci czy gracz jest po jego lewej b¹dŸ prawej stronie
     private void Update()
     {
         if(hp <= 0)
@@ -39,7 +42,7 @@ public class Enemy : MonoBehaviour
         
     
     }
-
+    // przypisuje pozycje gracza jeœli gracz istnieje
     private void GetTarget()
     {
         if (GameObject.FindGameObjectWithTag("Player"))
@@ -48,7 +51,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    
+    //Collizje przeciwnika z pociskami zwyk³ym odejmuje mu 1 ¿ycie, laser ustwia jego ¿ycie na 0,
+    //bomba to odejmuje od ¿ycia 2/dystans wybuchu od gracza+1,5;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Bullet"))

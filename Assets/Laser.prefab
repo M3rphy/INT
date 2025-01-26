@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3368968027687200402}
-  - component: {fileID: 743846762549157395}
   - component: {fileID: 2894812670965421672}
   - component: {fileID: 4050291193472582204}
   - component: {fileID: 2196678508417946837}
@@ -35,33 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &743846762549157395
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331996301414693634}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!70 &2894812670965421672
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -110,7 +82,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   existTime: 0.5
-  player: {fileID: 4463859337181728479, guid: 24591e0e330acfd4688e2cd1049eb54d, type: 3}
 --- !u!120 &2196678508417946837
 LineRenderer:
   serializedVersion: 2

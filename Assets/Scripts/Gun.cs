@@ -5,13 +5,14 @@ using UnityEngine.Events;
 
 public class Gun : MonoBehaviour
 {
+    //Odniesienie do gracza
     [SerializeField] private Player player;
-
-    //bullet
-    
+    //Odniesienie do pozycji FiringPoint
     [SerializeField] private Transform firingPoint;
-    [SerializeField] private float fireRate = 0.5f;
+    //lista obiektów pociwków w magazynku oraz wszystkie parametry potrzebne
+    //do stworzenia wystra³u pocisku opóŸnionego po ka¿dym wystrzale oraz do prze³adowywania
     public GameObject[] magazine;
+    [SerializeField] private float fireRate = 0.5f;
     public int curMagazinSize = 0;
     public int maxMagazinSize = 6;
     public float reloadTime = 2f;
@@ -19,15 +20,18 @@ public class Gun : MonoBehaviour
     public bool isReloading = false;
     private float fireTimer;
     public float currentDelay;
+    //odniesienie do componentu RigidBody 2D
     private Rigidbody2D gunRBody;
-
+    //Funkcja daj¹ca sygna³ do wizualnego przedstawienia prze³adowania
     public UnityEvent ReloadVisExecute;
 
+    //przypisanie wartoœci do gunRBody
     void Awake()
     {
         gunRBody = GetComponent<Rigidbody2D>();
     }
- 
+    //funkcja Update sprawdzaj¹ca czy gracz wcisno³ przycisk prze³adowania i czy wszystkie warunki s¹ spe³nione by pistolet móg³ prze³adowaæ
+    //sprawdza czy przycisk wystrza³u zosta³ wciœniêty oraz czy wszystkie warunki s¹ spe³nione by pistolet móg³ wystrzeliæ kolejny pocisk w kolejnoœci
     void Update()
     {
      
@@ -45,6 +49,8 @@ public class Gun : MonoBehaviour
             fireTimer -= Time.deltaTime;
         }
     }
+    //ustawia pozycje pistoletu na pozycje gracza by pitolet pod¹¿a³ za graczem
+    //oraz obraca go w kierunki myszki oraz odwraca Sprite pistoletu by przy odwracaniu go w kierunku myszki nigdy nie by³ do góry nogami
     void FixedUpdate()
     {
         gunRBody.velocity = player.rBody.velocity;
@@ -67,11 +73,15 @@ public class Gun : MonoBehaviour
         }
         
     }
+    // tworzy obiekt pocisku z listy w pozycji i kierunku firingPoint oraz zmienia na zmienn¹ indexu dla kolejnego pocisku
     private void Shoot(int whichBullet)
     {
         Instantiate(magazine[whichBullet], firingPoint.position, firingPoint.rotation);
         curMagazinSize++;
     }
+    //funkcja prze³adowania czeka przez czas prze³adowania a nastêpnie
+    //zmienia currentDelay na 0 oraz index pocisku w magazynku by
+    //po prze³adowaniu znowu móg³ wystrzeliæ pierwszy pocisk
     private IEnumerator Reload()
     {
         Debug.Log("Reloading");

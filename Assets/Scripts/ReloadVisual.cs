@@ -48,10 +48,8 @@ public class ReloadVisual : MonoBehaviour
     
     public void startVisualReload()
     {
-        
-        x = gun.GetComponent<Gun>().currentDelay/ gun.GetComponent<Gun>().reloadTime;
-        
-     
+
+        x = gun.GetComponent<Gun>().currentDelay / gun.GetComponent<Gun>().reloadTime;
     }
      
   
